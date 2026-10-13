@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi tienda (demo cliente)</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; }
+    .hero { padding: 70px 24px; text-align: center; }
+    h1 { font-size: 32px; margin: 0 0 10px; }
+    p { color: #475569; }
+    .btn { display: inline-block; margin-top: 18px; background: #4f46e5; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 10px; }
+    .note { max-width: 520px; margin: 24px auto; font-size: 13px; color: #64748b; border: 1px dashed #cbd5e1; border-radius: 10px; padding: 12px; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Mi tienda online</h1>
+    <p>Zapatillas y ropa deportiva al mejor precio.</p>
+    <a class="btn" href="#">Ver catálogo</a>
+    <div class="note">Esta es una página de ejemplo que hace de "tu web". Abre el chat (abajo a la derecha) y, en el <b>panel</b> en otra pestaña, verás este visitante en tiempo real. En modo demo solo funciona dentro del mismo navegador.</div>
+  </div>
+
+  <!-- Soporte en vivo (modo demo: sin Firebase) -->
+  <script>
+    window.PANEL = {
+      site: "demo",
+      title: "¿Necesitas ayuda?",
+      welcome: "Hola 👋 ¿En qué podemos ayudarte?"
+    };
+  </script>
+  <script type="module" src="widget.js"></script>
+</body>
+</html>
