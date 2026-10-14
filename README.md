@@ -52,6 +52,30 @@ Con REA activo, le pides a tu agente que investigue algo que **tú tengas**. Eje
 El agente usa REA para inspeccionar el objetivo y te devuelve una explicación con **evidencias y
 limitaciones**. El análisis se ejecuta **en local**.
 
+## Usar REA desde tu iPhone (en la nube)
+
+REA **no puede ejecutarse dentro del iPhone** (iOS no corre Node ni Ghidra/JADX, y
+no tiene interfaz propia: es solo un servidor MCP para un agente). Lo que sí puedes
+hacer es que el iPhone sea la **pantalla** de REA corriendo en la nube:
+
+1. En el Safari de tu iPhone, abre **https://claude.ai/code**.
+2. Abre **este proyecto**. El contenedor en la nube trae Node, y este repo ya incluye
+   la configuración de REA en [`.mcp.json`](.mcp.json).
+3. En los **ajustes del entorno** (menú del entorno, en la barra de título → *Edit* →
+   *Setup script*), añade esta línea para que REA se instale al arrancar cada sesión:
+   ```bash
+   npm install -g rea-agents@6.5.0
+   ```
+4. Abre una sesión nueva y pídele al agente que analice algo **tuyo**.
+
+Límites honestos de la vía nube:
+- El contenedor es **temporal**: lo que instales se borra al cerrarse.
+- La primera instalación puede pedirte **aprobación** (es una protección de seguridad).
+- Los motores nativos pesados (**Ghidra/JADX/Binwalk**) pueden no estar disponibles en
+  el contenedor; las herramientas comerciales (**IDA/Hopper**) no se pueden alojar.
+- Objetivos realistas por esta vía: archivos **tuyos** que subas, o análisis de
+  comportamiento/tráfico. Para ingeniería inversa nativa seria, mejor un ordenador.
+
 ## Notas para Windows 10
 
 - Instala Node desde el instalador `.msi` de nodejs.org (LTS).
